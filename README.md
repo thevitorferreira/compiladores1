@@ -7,4 +7,6 @@ Autômato
 
 Tabela
 
+![image](https://user-images.githubusercontent.com/57147635/180309750-cec8bb22-e483-4846-b91d-cfd3c8429a84.png)
+
 
