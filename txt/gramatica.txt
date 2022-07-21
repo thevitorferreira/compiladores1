@@ -1,0 +1,46 @@
+<E> -> <E>+<T> | <E>-<T> | <T>
+
+<T> -> <T>*<P> | <T>/<P> | <P>
+
+<P> -> <P>^<F> | exp[<F>] | <F>
+
+<F> -> (<E>) | id
+
+
+Tirando recursividade á esquerda
+
+E  -> T E'
+E' -> + T E'
+E' -> - T E'
+E' -> & 
+T  -> P T'
+T' -> * P T'
+T' -> / P T'
+T' -> &
+P  -> F P'
+P  -> exp[F] P'
+P' -> ^ F P'
+P' -> &
+F  -> (E)
+F  -> id
+
+
+First
+
+First(E)  = {exp[, (, id}
+First(E') = {+, -, &}
+First(T)  = {exp[, (, id}
+First(T') = {*, /, &}
+First(P)  = {exp[, (, id}
+First(P') = {^, &}
+First(F)  = {(, id)}
+
+Follow
+
+Follow(E)  = {$, )}
+Follow(E') = {$, )}
+Follow(T)  = {+, -, $, )}
+Follow(T') = {+, -, $, )}
+Follow(P)  = {*, /, $, ), +, -}
+Follow(P') = {*, /, $, ), +, -}
+Follow(F)  = {^, *, /, $, ), +, -,]}

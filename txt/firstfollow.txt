@@ -1,0 +1,14 @@
+First(E)  = {exp[, (, id}
+First(E') = {+, -, &}
+First(T)  = {exp[, (, id}
+First(T') = {*, /, &}
+First(P)  = {exp[, (, id}
+First(P') = {^, &}
+First(F)  = {(, id)}
+Follow(E)  = {$, )}
+Follow(E') = {$, )}
+Follow(T)  = {+, -, $, )}
+Follow(T') = {+, -, $, )}
+Follow(P)  = {*, /, $, ), +, -}
+Follow(P') = {*, /, $, ), +, -}
+Follow(F)  = {^, *, /, $, ), +, -,]}

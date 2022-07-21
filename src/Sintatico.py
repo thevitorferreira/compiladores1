@@ -22,5 +22,26 @@ class Sintatico:
                 ["id"] 
             ]
         }
+        self.terminais = ['+-/*^()[]','exp']
+        self.numeros = '0123456789'
+        self.casamento = []
+        self.pilha = ['E']
+
+    def isnumero(self, token):
+        for i in token:
+            if i in self.numeros:
+                flag = True
+            else:
+                flag = False
+        return flag
+
+    def main(self):
+        pass
+if __name__ == '__main__':
+    x = Sintatico()
+    x.main()
+
+
+
 
 
