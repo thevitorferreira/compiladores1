@@ -1,3 +1,4 @@
+from genericpath import exists
 from src.Lex import Lexico
 from src.Sintatico import Sintatico
 from src.Semantico import Semantico
@@ -32,6 +33,13 @@ class compilador:
             casamento = self.sintatico()
             self.calculadora()
 
+    def exponential(self, x):
+        # initialize sum of series
+        sum = 1.0
+        for i in range(10, 0, -1):
+            sum = 1 + int(x) * sum / i
+        return sum
+
     def calculadora(self):
         token = self.lexico()
         conta = ''
@@ -40,12 +48,22 @@ class compilador:
         for i in range(len(conta)):
             if conta[i] == "^":
                 conta = conta.replace("^", "**")
+        conta1 = conta.split('[')[1]
+        conta2 = conta1.split(']')[0]
+        exp = self.exponential(conta2)
+        exp = str(exp)
+        conta_nova = []
         for i in range(len(conta)):
-            if conta[i] == 'e':
-                conta = conta.replace("exp", "2.71828")
-
-        print(conta)
-        print(eval(conta))
+            if conta[i] != 'e':
+                conta_nova.append(conta[i])
+            else:
+                break
+        conta_exp = ''
+        for i in conta_nova:
+            conta_exp+=i
+        print(eval(conta_exp+exp))
+        
+        
 
         
 if __name__ == '__main__':
