@@ -18,7 +18,7 @@ T' -> * P T'
 T' -> / P T'
 T' -> &
 P  -> F P'
-P  -> exp[F] P'
+P'  -> exp[F]
 P' -> ^ F P'
 P' -> &
 F  -> (E)

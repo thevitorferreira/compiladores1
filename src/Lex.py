@@ -6,7 +6,7 @@ class Lexico:
 
     def prox_token(self):
         token = ''
-        if self.posicao > (len(self.text) - 1):
+        if self.posicao > (len(self.text) - 2):
             return None
         for indice, c in enumerate(self.text[self.posicao]):
             if c in '0123456789':
@@ -22,13 +22,12 @@ class Lexico:
                 return token
 
             if c == 'e':
-                print(indice)
                 if self.text[self.posicao + 1] == 'x' and self.text[self.posicao + 2] == 'p':
-                    token = 'exp'
-                    self.posicao += indice + 3
+                    token = 'exp['
+                    self.posicao += indice + 4
                     return token
 
-            if c in '+-^/*[]()=':
+            if c in '+-^/*]()=':
                 token = c
                 self.posicao += indice + 1
                 return token
